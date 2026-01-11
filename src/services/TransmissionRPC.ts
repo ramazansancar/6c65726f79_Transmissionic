@@ -107,14 +107,19 @@ class TRPC {
     clearInterval(freeSpaceRefreshInterval);
     freeSpaceRefreshInterval = setInterval(async () => {
       // Use the currently effective download location for the daemon
+      const sessionArgs = this.sessionArguments;
+      if (!sessionArgs) {
+        // Session information not available; skip this check for now.
+        return;
+      }
       const effectivePath =
-        this.sessionArguments && this.sessionArguments["incomplete-dir-enabled"]
-          ? this.sessionArguments["incomplete-dir"]
-          : this.sessionArguments["download-dir"];
+        sessionArgs["incomplete-dir-enabled"]
+          ? sessionArgs["incomplete-dir"]
+          : sessionArgs["download-dir"];
       await this.rpcCall("free-space", { path: effectivePath })
         .then((response) => {
           if (response.result == "success") {
-            this.sessionArguments["download-dir-free-space"] =
+            sessionArgs["download-dir-free-space"] =
               response.arguments["size-bytes"];
           }
         })
