@@ -173,6 +173,7 @@ import { Utils } from "../services/Utils";
 import { Emitter } from "../services/Emitter";
 import { SplashScreen } from '@capacitor/splash-screen';
 import * as _ from 'lodash';
+import { modalEnterAnimation, modalLeaveAnimation } from "../services/ModalAnimations";
 
 export default defineComponent({
   name: 'App',
@@ -503,7 +504,9 @@ export default defineComponent({
       const modal = await modalController
         .create({
           component: Settings,
-          cssClass: 'settings'
+          cssClass: 'settings',
+          enterAnimation: modalEnterAnimation,
+          leaveAnimation: modalLeaveAnimation,
         })
       modal.onDidDismiss()
         .then(() => {
@@ -517,7 +520,9 @@ export default defineComponent({
     async openAboutModal() {
       const modal = await modalController
         .create({
-          component: About
+          component: About,
+          enterAnimation: modalEnterAnimation,
+          leaveAnimation: modalLeaveAnimation,
         })
       modal.onDidDismiss()
         .then(() => {
@@ -540,7 +545,9 @@ export default defineComponent({
             serverList:this.privateState.serverList,
             serverId:serverId,
             add:add
-          }
+          },
+          enterAnimation: modalEnterAnimation,
+          leaveAnimation: modalLeaveAnimation,
         })
       modal.onDidDismiss()
         .then(() => {

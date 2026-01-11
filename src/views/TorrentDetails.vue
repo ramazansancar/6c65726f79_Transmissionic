@@ -127,6 +127,7 @@ import Trackers from './components/Trackers.vue';
 import Peers from './components/Peers.vue';
 import TabController from '../services/TabController';
 import { TransmissionRPC } from '../services/TransmissionRPC';
+import { modalEnterAnimation, modalLeaveAnimation } from "../services/ModalAnimations";
 
 import { Emitter } from "../services/Emitter";
 import * as _ from 'lodash';
@@ -473,6 +474,8 @@ export default defineComponent({
         .create({
           component: LocationAlert,
           cssClass:"location-alert",
+          enterAnimation: modalEnterAnimation,
+          leaveAnimation: modalLeaveAnimation,
           componentProps: {
             value:this.privateState.details.downloadDir,
           }

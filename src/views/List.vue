@@ -206,6 +206,7 @@ import { Shortcuts } from '../services/Shortcuts';
 import { Locale } from "../services/Locale";
 import { Utils } from "../services/Utils";
 import { Emitter } from "../services/Emitter";
+import { modalEnterAnimation, modalLeaveAnimation } from "../services/ModalAnimations";
 
 import * as _ from 'lodash';
 
@@ -604,6 +605,8 @@ export default defineComponent({
         .create({
           component: LocationAlert,
           cssClass:"location-alert",
+          enterAnimation: modalEnterAnimation,
+          leaveAnimation: modalLeaveAnimation,
           componentProps: {
             value:downloadDir,
           }
