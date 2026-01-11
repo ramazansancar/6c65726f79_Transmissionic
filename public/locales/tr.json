@@ -251,5 +251,6 @@
     "altSpeedEnd": "Bitiş saati",
     "altSpeedDays": "Günler",
     "showTrackerList": "İzleyici listesini her zaman göster",
-    "testPort": "Portun açık olup olmadığını test et"
+    "testPort": "Portun açık olup olmadığını test et",
+    "unknown": "Bilinmiyor"
 }
