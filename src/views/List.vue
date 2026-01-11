@@ -83,7 +83,7 @@
     </VirtualScroll>
 
     <ion-footer v-if="connectionStatus.connected" :translucent="true">
-      <ion-toolbar v-if="privateState.selection.length>0" id="footer" color="primary">
+      <ion-toolbar v-if="privateState.selection.length>0" color="footer primary">
         <ion-buttons slot="start">
           <ion-button fill="clear" @click="cancelSelection()">
             <ion-icon slot="icon-only" :ios="closeOutline" :md="closeSharp"></ion-icon>
@@ -100,7 +100,7 @@
         </ion-buttons>
       </ion-toolbar>
 
-      <ion-toolbar v-else id="footer">
+      <ion-toolbar v-else class="footer">
         <ion-buttons slot="start">
           <ion-button fill="clear" @click="serverConfiguration()" :aria-label="Locale.serverConfig">
             <ion-icon slot="icon-only" :ios="constructOutline" :md="constructSharp"></ion-icon>
@@ -783,15 +783,15 @@ export default defineComponent({
   display:none;
 }
 
-#footer ion-icon {
+.footer ion-icon {
   vertical-align: middle;
 }
 
-#footer .text {
+.footer .text {
  padding:0 4px;
 }
 
-#footer  .bloc {
+.footer  .bloc {
   white-space: nowrap;
   margin-right:4px;
 }
